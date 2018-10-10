@@ -1,0 +1,15 @@
+﻿Eclipse Setup Guide for EniWARE Network
+
+Какво представлява EniWARE Network? 
+
+Интро -- github solarnetwork
+
+
+WARRNING
+стр 7 - Click on the enivonment tab at the bottom....
+WARRNING
+In order to run the EniwareNetwork
+
+
+
+
