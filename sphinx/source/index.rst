@@ -6,11 +6,37 @@
 Welcome to Eclipse Setup Guide for EniWARE Network's documentation!
 ===================================================================
 
+.. image:: /images/0.png
+   :alt: EniWARE
+   :scale: 90%
+   :align: right
+   :target: http://eniware.org
+
+
+:Version:
+        |release|
+
+:Language:
+         en
+
+:Description:
+         EniWARE
+		 Deploying Cloud Foundry on Private Cloud
+
+:Author:
+         EniWARE
+
+:Rendered:
+         |today|
+      
+
+**Contents:**
+
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 4
 
-
+   eclipse-set-guide
+   
 
 Indices and tables
 ==================
