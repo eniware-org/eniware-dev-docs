@@ -58,7 +58,7 @@ Older versions of Eclipse (before Eclipse Mars) did not come with Git support by
 Eclipse OSGi enterprise support (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Another optional, but useful set of plug-ins for EniwareNetwork development in Eclipse are from `Project Libra <https://www.eclipse.org/libra/>`_. Navigate to **Help > Install New Software...**, select the project release update site URL in the **Work with** menu (for example ``http://download.eclipse.o*rg/releases/oxygen`` if you're using Eclipse Oxygen) and look under **Web, XML, Java EE and OSGi Enterprise Development** for these plug-ins:
+Another optional, but useful set of plug-ins for EniwareNetwork development in Eclipse are from `Project Libra <https://www.eclipse.org/libra/>`_. Navigate to **Help > Install New Software...**, select the project release update site URL in the **Work with** menu (for example ``http://download.eclipse.org/releases/oxygen`` if you're using Eclipse Oxygen) and look under **Web, XML, Java EE and OSGi Enterprise Development** for these plug-ins:
 
 * OSGi Bundle Facet
 * OSGi Frarmework Editor
