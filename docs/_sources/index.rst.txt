@@ -1,9 +1,9 @@
-.. Eclipse Setup Guide for EniWARE Network documentation master file, created by
+.. Eclipse Setup Guide for EniwareNetwork documentation master file, created by
    sphinx-quickstart on Wed Oct 10 02:55:36 2018.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Eclipse Setup Guide for EniWARE Network's documentation!
+Welcome to Eclipse Setup Guide for EniwareNetwork's documentation!
 ===================================================================
 
 .. image:: /images/0.png
@@ -21,7 +21,7 @@ Welcome to Eclipse Setup Guide for EniWARE Network's documentation!
 
 :Description:
          EniWARE
-		 Deploying Cloud Foundry on Private Cloud
+		 EniwareNetwork Documentation
 
 :Author:
          EniWARE

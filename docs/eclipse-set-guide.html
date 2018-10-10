@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Eclipse Setup Guide &mdash; Eclipse Setup Guide for EniWARE Network 1 documentation</title>
+  <title>What is EniwareNetwork? &mdash; Eclipse Setup Guide for EniWARE Network 1 documentation</title>
   
 
   
@@ -27,7 +27,8 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to Eclipse Setup Guide for EniwareNetwork’s documentation!" href="index.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -76,11 +77,19 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Eclipse Setup Guide</a></li>
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">What is EniwareNetwork?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#eclipse-setup-guide">Eclipse Setup Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#eclipse-download">Eclipse Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#eclipse-git-support-older-versions-of-eclipse-only">Eclipse Git support (older versions of Eclipse only)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#eclipse-osgi-enterprise-support-optional">Eclipse OSGi enterprise support (optional)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#clone-eniwarenetwork-git-repositories">Clone EniwareNetwork Git Repositories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#set-up-eclipse-target-platform">Set up Eclipse Target Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configure-osgi-runtime">Configure OSGi Runtime</a></li>
 </ul>
-</div>
+</li>
+</ul>
+
             
           
         </div>
@@ -124,7 +133,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Eclipse Setup Guide</li>
+      <li>What is EniwareNetwork?</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -143,8 +152,168 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="eclipse-setup-guide">
-<h1>Eclipse Setup Guide<a class="headerlink" href="#eclipse-setup-guide" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="what-is-eniwarenetwork">
+<span id="intro"></span><h1>What is EniwareNetwork?<a class="headerlink" href="#what-is-eniwarenetwork" title="Permalink to this headline">¶</a></h1>
+<p>EniwareNetwork is an open source software platform designed for building, deploying and running Industrial Internet applications.</p>
+<p>EniwareNetwork helps companies of all sizes to:</p>
+<ul class="simple">
+<li>Collecting and analyzing massive amounts of industrial data;</li>
+<li>Create a representation of assets;</li>
+<li>Improve faster: quickly build and deploy apps;</li>
+<li>Use an environment of manage services presented by Eniware Open Source.</li>
+</ul>
+<p>EniwareNetwork contains a cloud services that run in a cloud structure managed by you, and can get a complete insight into your assets, using the services and infrastructure built. This allows better optimization of part of the system, also of the whole structure.</p>
+<p>EniwareNetwork provides documentation to build a cloud that meets your data collection and processing needs, while improving the security, support, management, and control of output data.</p>
+</div>
+<div class="section" id="eclipse-setup-guide">
+<span id="eclipse-setup"></span><h1>Eclipse Setup Guide<a class="headerlink" href="#eclipse-setup-guide" title="Permalink to this headline">¶</a></h1>
+<p>This guide explains how to setup a development environment for contributing to or modifying EniWARE Network code using the popular Eclipse IDE. Although Eclipse is not actually required to work with EniWARE Network code, it is a very good option and the remainder of this guide will describe setting up Eclipse for viewing and running the code for development purposes.</p>
+<p>The EniWARE Network projects consists of many small OSGi bundle projects that, when combined and run in an OSGi container, form a complete application. Each OSGi bundle comes configured as an Eclipse IDE plug-in project (Eclipse refers to OSGi bundles as “plug-ins” and its OSGi development tools are collectively known as the Eclipse Plugin Development Environment or just PDE.</p>
+<div class="section" id="eclipse-download">
+<span id="id1"></span><h2>Eclipse Setup<a class="headerlink" href="#eclipse-download" title="Permalink to this headline">¶</a></h2>
+<p>Download a recent version of the <a class="reference external" href="http://www.eclipse.org/downloads/">Eclipse IDE</a>. The <strong>Eclipse IDE for Java EE Developers</strong> edition is usually the best option.</p>
+<p>Most likely you will want to start with a new workspace for EniWARE Network development. When you launch Eclipse it might ask you for a workspace location, at which time you can point it at a new directory, or once Eclipse is running you can choose <strong>File &gt; Switch Workspace &gt; Other…</strong> to create a new one.</p>
+</div>
+<div class="section" id="eclipse-git-support-older-versions-of-eclipse-only">
+<span id="eclipse-git"></span><h2>Eclipse Git support (older versions of Eclipse only)<a class="headerlink" href="#eclipse-git-support-older-versions-of-eclipse-only" title="Permalink to this headline">¶</a></h2>
+<p>Older versions of Eclipse (before Eclipse Mars) did not come with Git support by default. If you are using an older version, once you have Eclipse installed and running you’ll need to install support for Git, via the <strong>EGit</strong> plug-in. Navigate to <strong>Help &gt; Eclipse Marketplace</strong> and search for <em>egit</em>. Install the <strong>EGit - Git Team Provider</strong> plug-in.</p>
+<div class="figure" id="eclipse-egit">
+<img alt="EGit - Git Team Provider" src="_images/0-eclipse-egit-install.png" />
+</div>
+</div>
+<div class="section" id="eclipse-osgi-enterprise-support-optional">
+<span id="eclipse-osgi"></span><h2>Eclipse OSGi enterprise support (optional)<a class="headerlink" href="#eclipse-osgi-enterprise-support-optional" title="Permalink to this headline">¶</a></h2>
+<p>Another optional, but useful set of plug-ins for EniwareNetwork development in Eclipse are from <a class="reference external" href="https://www.eclipse.org/libra/">Project Libra</a>. Navigate to <strong>Help &gt; Install New Software…</strong>, select the project release update site URL in the <strong>Work with</strong> menu (for example <code class="docutils literal notranslate"><span class="pre">http://download.eclipse.o*rg/releases/oxygen</span></code> if you’re using Eclipse Oxygen) and look under <strong>Web, XML, Java EE and OSGi Enterprise Development</strong> for these plug-ins:</p>
+<ul class="simple">
+<li>OSGi Bundle Facet</li>
+<li>OSGi Frarmework Editor</li>
+<li>OSGi Framework Launchers</li>
+</ul>
+<div class="figure" id="eclipse-osgi-install">
+<img alt="OSGi enterprise support" src="_images/1-available-software.png" />
+</div>
+</div>
+<div class="section" id="clone-eniwarenetwork-git-repositories">
+<span id="eclipse-eniware-repo"></span><h2>Clone EniwareNetwork Git Repositories<a class="headerlink" href="#clone-eniwarenetwork-git-repositories" title="Permalink to this headline">¶</a></h2>
+<p>The EniwareNetwork platform is broken up into multiple Git repositories. You will need to clone a few of them to work on any EniwareNetwork application. You can clone a Git repository by going to open a GIT Perspective: <strong>Window &gt; Perspective &gt; Open Perspective &gt; Other &gt; Git</strong>.
+In the top right corner of Eclipse window you will see the icon of <em>GIT Perspective</em>.</p>
+<p>After you open the <em>GIT Perspective</em> you need to clone the following <a class="reference external" href="https://github.com/eniware-org">EniwareNetwork</a> repositories from Github:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/eniware-org/org.eniware.build">org.eniware.build</a>;</li>
+<li><a class="reference external" href="https://github.com/eniware-org/org.eniware.common">org.eniware.common</a>;</li>
+<li><a class="reference external" href="https://github.com/eniware-org/org.eniware.edge">org.eniware.edge</a>;</li>
+<li><a class="reference external" href="https://github.com/eniware-org/org.eniware.external">org.eniware.external</a>;</li>
+<li><a class="reference external" href="https://github.com/eniware-org/org.eniware.central">org.eniware.central</a></li>
+</ul>
+<div class="figure" id="eniware-repo-install">
+<img alt="EniwareNetwork repository" src="_images/2-org-eniawre-build.png" />
+</div>
+<p>To clone the repository switch to GIT Perspective and click on <strong>Clone a Git Repository and add the clone to thiw view</strong> button:</p>
+<div class="figure" id="eniware-repo-clone">
+<img alt="Clone repository" src="_images/3-new-eclipse.png" />
+</div>
+<p>Then fill in the desired repository URI:</p>
+<div class="figure" id="eniware-repo-uri">
+<img alt="Repository URI" src="_images/4-clone-git-repository.png" />
+</div>
+<p>Then click <strong>Next</strong> button to select the branch in <strong>Branch Selection</strong> screen. The master branch should already be selected for you.</p>
+<div class="figure" id="eniware-repo-branch">
+<img alt="Branch selection" src="_images/5-branch-selection.png" />
+</div>
+<p>Click the <strong>Next</strong> button. In the next window you have to choose the <strong>Local Destination</strong> (a directory to clone the repository into), and mark the <strong>Import all existing Eclipse project after clone finishes</strong> checkbox:</p>
+<div class="figure" id="eniware-local-destination">
+<img alt="Local Destinationn" src="_images/6-local-destination.png" />
+</div>
+<p>Click the <strong>Finish</strong> button to check out the projects.</p>
+<p>Once the clone of repositories to your Eclipse is complete, you can switch to the Java Perspective and you will see the bundle projects. It should look similar to the following:</p>
+<div class="figure" id="id2">
+<img alt="Package Explorer" src="_images/7-new-eclipse-projects.png" />
+</div>
+</div>
+<div class="section" id="set-up-eclipse-target-platform">
+<span id="eclipse-target"></span><h2>Set up Eclipse Target Platform<a class="headerlink" href="#set-up-eclipse-target-platform" title="Permalink to this headline">¶</a></h2>
+<p>Next we have to configure the Eclipse. This will happened in few steps:</p>
+<ol class="arabic">
+<li><p class="first">In Eclipse open the <strong>eniware-osgi-target</strong> project and then the <code class="docutils literal notranslate"><span class="pre">defs/org.eniware-gemini.target</span></code> file.</p>
+</li>
+<li><p class="first">Set up the target platform by click on the <strong>Set as Active Target Platform</strong> button on the <strong>Target Definition</strong> screen.</p>
+<div class="figure" id="eniware-target-platform">
+<img alt="Target Definition" src="_images/8-org.eniware-gemini.png" />
+</div>
+</li>
+</ol>
+<p>This will create and activate the Eclipse target platform, and all Eclipse errors for all projects should go away. If any errors remain, select those projects and choose <strong>Project &gt; Clean…</strong> to have Eclipse re-compile those projects again. Sometimes Eclipse incorrectly reports problems, and cleaning those projects will resolve the errors. You will find references to this situation on the web called <em>the Eclipse dance</em>.</p>
+</div>
+<div class="section" id="configure-osgi-runtime">
+<span id="eclipse-osgi-runtime"></span><h2>Configure OSGi Runtime<a class="headerlink" href="#configure-osgi-runtime" title="Permalink to this headline">¶</a></h2>
+<p>In order to run the EniwareNetwork platform within Eclipse, you must configure the OSGi runtime environment:</p>
+<ol class="arabic">
+<li><p class="first">First, create the directory <code class="docutils literal notranslate"><span class="pre">/eniware-osgi-target/config</span></code>. Then copy all the files from <code class="docutils literal notranslate"><span class="pre">/eniware-osgi-target/example/config</span></code> into that directory.</p>
+</li>
+<li><p class="first">Go to <strong>Run &gt; Run</strong> configuration. From Run configuration choose <strong>OSGI Framework</strong> and specify <strong>EniwareNetwork</strong> as the runtime name.</p>
+<div class="figure" id="id3">
+<img alt="Run configuration" src="_images/9-eniware-network.png" />
+</div>
+</li>
+<li><p class="first">Next, you must change some of the start levels for a handful of bundles, to ensure the platform can start up correctly. Modify the start levels of the bundles to the following:</p>
+</li>
+</ol>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="74%" />
+<col width="26%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Plugin</th>
+<th class="head">Start Level</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>org.apache.felix.eventadmin</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td>org.apache.felix.fileinstall</td>
+<td>2</td>
+</tr>
+<tr class="row-even"><td>org.apache.servicemix.bundles.derby</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td>org.eclipse.equinox.cm</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td>org.eclipse.gemini.web.extender</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><div class="figure" id="id4">
+<img alt="Boundles" src="_images/10-bundles.png" />
+</div>
+</div></blockquote>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li>Next, click on the <strong>Arguments</strong> tab and change the <strong>Working directory</strong> to <strong>Other</strong> and specify <code class="docutils literal notranslate"><span class="pre">${workspace_loc:eniware-osgi-target}</span></code> as the path. In the <strong>VM arguments</strong> section, paste in the arguments you copied from the target platform configuration in the previous section, which should look something like:</li>
+</ol>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span>-Dsn.home=${workspace_loc:eniware-osgi-target}
+-Dderby.system.home=${workspace_loc:eniware-osgi-target}/var/db
+-Djava.util.logging.config.file=config/jre-logging.properties
+-Dosgi.java.profile=file:config/java6-server.profile
+-Dorg.apache.felix.eventadmin.Timeout=120000
+-Dfelix.fileinstall.dir=configurations/services
+-Dfelix.fileinstall.filter=.*\.cfg
+-Dfelix.fileinstall.noInitialDelay=true
+-Declipse.ignoreApp=true
+-Dosgi.noShutdown=true
+-Dxml.catalog.files=${workspace_loc:eniware-osgi-lib}/xml-catalog/catalog.xml
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li>Next, click on the <strong>Settings</strong> tag and change the JRE to use the <strong>Execution environment</strong> value of <strong>JavaSE-1.6</strong>.</li>
+</ol>
+<p>You can now click the <strong>Close</strong> button to dismiss the runtime configuration dialog.</p>
+</div>
 </div>
 
 
@@ -152,6 +321,13 @@
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Welcome to Eclipse Setup Guide for EniwareNetwork’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
