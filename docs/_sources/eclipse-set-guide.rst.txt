@@ -152,7 +152,7 @@ Next we have to configure the Eclipse. This will happened in few steps:
 
 This will create and activate the Eclipse target platform, and all Eclipse errors for all projects should go away. If any errors remain, select those projects and choose **Project > Clean...** to have Eclipse re-compile those projects again. Sometimes Eclipse incorrectly reports problems, and cleaning those projects will resolve the errors. You will find references to this situation on the web called *the Eclipse dance*.
 
-.. note: Click on the **Environment** tab at the bottom, then under the **Arguments** section select **VM**. Select this entire block of text and copy it, as you'll need to paste this into the runtime configuration, discussed in the next section.
+.. note:: Click on the **Environment** tab at the bottom, then under the **Arguments** section select **VM**. Select this entire block of text and copy it, as you'll need to paste this into the runtime configuration, discussed in the next section.
 
 
 
