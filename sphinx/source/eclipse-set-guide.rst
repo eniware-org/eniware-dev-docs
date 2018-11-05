@@ -1,7 +1,7 @@
 .. _intro:
 
 What is EniwareNetwork?
-==========================
+=======================
 
 EniwareNetwork is an open source software platform designed for building, deploying and running Industrial Internet applications. 
 
@@ -20,7 +20,7 @@ EniwareNetwork provides documentation to build a cloud that meets your data coll
 .. _eclipse-setup:
 
 Eclipse Setup Guide
-=====================
+===================
 
 This guide explains how to setup a development environment for contributing to or modifying EniWARE Network code using the popular Eclipse IDE. Although Eclipse is not actually required to work with EniWARE Network code, it is a very good option and the remainder of this guide will describe setting up Eclipse for viewing and running the code for development purposes.
 
@@ -31,9 +31,9 @@ The EniWARE Network projects consists of many small OSGi bundle projects that, w
 .. _eclipse-download:
 
 Eclipse Setup
-^^^^^^^^^^^^^^
+^^^^^^^^^^^^^
 
-Download a recent version of the `Eclipse IDE <http://www.eclipse.org/downloads/>`_. The **Eclipse IDE for Java EE Developers** edition is usually the best option.
+Download a recent version of the `Eclipse IDE <http://www.eclipse.org/downloads/packages/release/oxygen/3a>`_. The **Eclipse IDE for Java EE Developers** edition is usually the best option.
 
 Most likely you will want to start with a new workspace for EniWARE Network development. When you launch Eclipse it might ask you for a workspace location, at which time you can point it at a new directory, or once Eclipse is running you can choose **File > Switch Workspace > Other...** to create a new one.
 
@@ -42,7 +42,7 @@ Most likely you will want to start with a new workspace for EniWARE Network deve
 .. _eclipse-git:
 
 Eclipse Git support (older versions of Eclipse only)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Older versions of Eclipse (before Eclipse Mars) did not come with Git support by default. If you are using an older version, once you have Eclipse installed and running you'll need to install support for Git, via the **EGit** plug-in. Navigate to **Help > Eclipse Marketplace** and search for *egit*. Install the **EGit - Git Team Provider** plug-in.
 
@@ -56,7 +56,7 @@ Older versions of Eclipse (before Eclipse Mars) did not come with Git support by
 .. _eclipse-osgi:
 
 Eclipse OSGi enterprise support (optional)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Another optional, but useful set of plug-ins for EniwareNetwork development in Eclipse are from `Project Libra <https://www.eclipse.org/libra/>`_. Navigate to **Help > Install New Software...**, select the project release update site URL in the **Work with** menu (for example ``http://download.eclipse.org/releases/oxygen`` if you're using Eclipse Oxygen) and look under **Web, XML, Java EE and OSGi Enterprise Development** for these plug-ins:
 
@@ -138,7 +138,7 @@ Once the clone of repositories to your Eclipse is complete, you can switch to th
 .. _eclipse-target:   
    
 Set up Eclipse Target Platform
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Next we have to configure the Eclipse. This will happened in few steps:
 
@@ -160,7 +160,7 @@ This will create and activate the Eclipse target platform, and all Eclipse error
 .. _eclipse-osgi-runtime:
 
 Configure OSGi Runtime
-^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
 
 In order to run the EniwareNetwork platform within Eclipse, you must configure the OSGi runtime environment:
 
