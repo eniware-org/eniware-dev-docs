@@ -33,7 +33,7 @@ The EniWARE Network projects consists of many small OSGi bundle projects that, w
 Eclipse Setup
 ^^^^^^^^^^^^^
 
-In our case we use Eclipse Oxygen which can be download from here.  `Eclipse IDE <http://www.eclipse.org/downloads/packages/release/oxygen/3a/>`_. The **Eclipse IDE for Java EE Developers** edition is usually the best option.
+In our case we use Eclipse Oxygen which can be download from here.  `Eclipse IDE <http://www.eclipse.org/downloads/packages/release/oxygen/3a/>`_. The **Eclipse IDE for Java Developers** edition is usually the best option.
 
 Most likely you will want to start with a new workspace for EniWARE Network development. When you launch Eclipse it might ask you for a workspace location, at which time you can point it at a new directory, or once Eclipse is running you can choose **File > Switch Workspace > Other...** to create a new one.
 
