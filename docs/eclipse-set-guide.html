@@ -171,7 +171,7 @@
 <p>The EniWARE Network projects consists of many small OSGi bundle projects that, when combined and run in an OSGi container, form a complete application. Each OSGi bundle comes configured as an Eclipse IDE plug-in project (Eclipse refers to OSGi bundles as “plug-ins” and its OSGi development tools are collectively known as the Eclipse Plugin Development Environment or just PDE.</p>
 <div class="section" id="eclipse-download">
 <span id="id1"></span><h2>Eclipse Setup<a class="headerlink" href="#eclipse-download" title="Permalink to this headline">¶</a></h2>
-<p>Download a recent version of the <a class="reference external" href="http://www.eclipse.org/downloads/">Eclipse IDE</a>. The <strong>Eclipse IDE for Java EE Developers</strong> edition is usually the best option.</p>
+<p>In our case we use Eclipse Oxygen which can be download from here.  <a class="reference external" href="http://www.eclipse.org/downloads/packages/release/oxygen/3a/">Eclipse IDE</a>. The <strong>Eclipse IDE for Java EE Developers</strong> edition is usually the best option.</p>
 <p>Most likely you will want to start with a new workspace for EniWARE Network development. When you launch Eclipse it might ask you for a workspace location, at which time you can point it at a new directory, or once Eclipse is running you can choose <strong>File &gt; Switch Workspace &gt; Other…</strong> to create a new one.</p>
 </div>
 <div class="section" id="eclipse-git-support-older-versions-of-eclipse-only">
@@ -226,7 +226,7 @@ In the top right corner of Eclipse window you will see the icon of <em>GIT Persp
 </div>
 <p>Click the <strong>Finish</strong> button to check out the projects.</p>
 <p>Once the clone of repositories to your Eclipse is complete, you can switch to the Java Perspective and you will see the bundle projects. It should look similar to the following:</p>
-<div class="figure" id="id2">
+<div class="figure" id="eniware-packet-explorer">
 <img alt="Package Explorer" src="_images/7-new-eclipse-projects.png" />
 </div>
 </div>
@@ -237,7 +237,7 @@ In the top right corner of Eclipse window you will see the icon of <em>GIT Persp
 <li><p class="first">In Eclipse open the <strong>eniware-osgi-target</strong> project and then the <code class="docutils literal notranslate"><span class="pre">defs/org.eniware-gemini.target</span></code> file.</p>
 </li>
 <li><p class="first">Set up the target platform by click on the <strong>Set as Active Target Platform</strong> button on the <strong>Target Definition</strong> screen.</p>
-<div class="figure" id="eniware-target-platform">
+<div class="figure" id="eniware-target-definition">
 <img alt="Target Definition" src="_images/8-org.eniware-gemini.png" />
 </div>
 </li>
@@ -255,7 +255,7 @@ In the top right corner of Eclipse window you will see the icon of <em>GIT Persp
 <li><p class="first">First, create the directory <code class="docutils literal notranslate"><span class="pre">/eniware-osgi-target/config</span></code>. Then copy all the files from <code class="docutils literal notranslate"><span class="pre">/eniware-osgi-target/example/config</span></code> into that directory.</p>
 </li>
 <li><p class="first">Go to <strong>Run &gt; Run</strong> configuration. From Run configuration choose <strong>OSGI Framework</strong> and specify <strong>EniwareNetwork</strong> as the runtime name.</p>
-<div class="figure" id="id3">
+<div class="figure" id="eniware-target-platform">
 <img alt="Run configuration" src="_images/9-eniware-network.png" />
 </div>
 </li>
@@ -292,8 +292,8 @@ In the top right corner of Eclipse window you will see the icon of <em>GIT Persp
 </tbody>
 </table>
 <blockquote>
-<div><div class="figure" id="id4">
-<img alt="Boundles" src="_images/10-bundles.png" />
+<div><div class="figure" id="eniware-bundles">
+<img alt="Bundles" src="_images/10-bundles.png" />
 </div>
 </div></blockquote>
 </div></blockquote>
