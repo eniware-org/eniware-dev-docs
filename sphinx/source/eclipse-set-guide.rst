@@ -154,6 +154,20 @@ This will create and activate the Eclipse target platform, and all Eclipse error
 
 .. note:: Click on the **Environment** tab at the bottom, then under the **Arguments** section select **VM**. Select this entire block of text and copy it, as you will need to paste this into the runtime configuration, discussed in the next section.
 
+.. important:: You may need to install **Eclipse Plug-in Development Environment** (Eclipse PDE). Otherwise the **Set as Active Target Platform** is  not available.
+
+  To obtain PDE, select **Help" > **Install New Software**.
+
+   .. figure:: /images/8.1-org.eniware-PDEins.png
+      :alt: Obtain PDE
+
+
+  Select **Work with:** *--All Available Sites--*, in the search field enter **pde**, check **Eclipse Plugin Development Tools**.
+  
+   .. figure:: /images/8.2org.eniware-PDEadd.png
+      :alt: Select PDE Plug-in
+
+  Click **Next**. Accept the license agreement and select **Finish**. You will need to restart Eclipse.
 
 
 
