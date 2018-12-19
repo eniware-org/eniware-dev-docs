@@ -80,12 +80,12 @@
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">What is EniwareNetwork?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#eclipse-setup-guide">Eclipse Setup Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#eclipse-download">Eclipse Setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#eclipse-git-support-older-versions-of-eclipse-only">Eclipse Git support (older versions of Eclipse only)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#eclipse-osgi-enterprise-support-optional">Eclipse OSGi enterprise support (optional)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#clone-eniwarenetwork-git-repositories">Clone EniwareNetwork Git Repositories</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#set-up-eclipse-target-platform">Set up Eclipse Target Platform</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#configure-osgi-runtime">Configure OSGi Runtime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#eclipse-download">1. Eclipse Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#eclipse-git-support-older-versions-of-eclipse-only">2. Eclipse Git support (older versions of Eclipse only)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#eclipse-osgi-enterprise-support-optional">3. Eclipse OSGi enterprise support (optional)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#clone-eniwarenetwork-git-repositories">4. Clone EniwareNetwork Git Repositories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#set-up-eclipse-target-platform">5. Set up Eclipse Target Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configure-osgi-runtime">6. Configure OSGi Runtime</a></li>
 </ul>
 </li>
 </ul>
@@ -167,26 +167,26 @@
 </div>
 <div class="section" id="eclipse-setup-guide">
 <span id="eclipse-setup"></span><h1>Eclipse Setup Guide<a class="headerlink" href="#eclipse-setup-guide" title="Permalink to this headline">¶</a></h1>
-<p>This guide explains how to setup a development environment for contributing to or modifying EniWARE Network code using the popular Eclipse IDE. Although Eclipse is not actually required to work with EniWARE Network code, it is a very good option and the remainder of this guide will describe setting up Eclipse for viewing and running the code for development purposes.</p>
-<p>The EniWARE Network projects consists of many small OSGi bundle projects that, when combined and run in an OSGi container, form a complete application. Each OSGi bundle comes configured as an Eclipse IDE plug-in project (Eclipse refers to OSGi bundles as “plug-ins” and its OSGi development tools are collectively known as the Eclipse Plugin Development Environment or just PDE.</p>
+<p>This guide explains how to setup a development environment for contributing to or modifying EniwareNetwork code using the popular Eclipse IDE. Although Eclipse is not actually required to work with EniwareNetwork code, it is a very good option and the remainder of this guide will describe setting up Eclipse for viewing and running the code for development purposes.</p>
+<p>The EniwareNetwork projects consists of many small OSGi bundle projects that, when combined and run in an OSGi container, form a complete application. Each OSGi bundle comes configured as an Eclipse IDE plug-in project (Eclipse refers to OSGi bundles as “plug-ins” and its OSGi development tools are collectively known as the Eclipse Plugin Development Environment or just PDE.</p>
 <div class="section" id="eclipse-download">
-<span id="id1"></span><h2>Eclipse Setup<a class="headerlink" href="#eclipse-download" title="Permalink to this headline">¶</a></h2>
-<p>In our case we use Eclipse Oxygen which can be download from here: <a class="reference external" href="http://www.eclipse.org/downloads/packages/release/oxygen/3a/">Eclipse Oxygen 3a Packages</a>. The <a class="reference external" href="http://www.eclipse.org/downloads/packages/release/oxygen/3a/eclipse-ide-java-developers">Eclipse IDE for Java Developers</a> edition is usually the best option.</p>
-<p>Most likely you will want to start with a new workspace for EniWARE Network development. When you launch Eclipse it might ask you for a workspace location, at which time you can point it at a new directory, or once Eclipse is running you can choose <strong>File &gt; Switch Workspace &gt; Other…</strong> to create a new one.</p>
+<span id="id1"></span><h2>1. Eclipse Setup<a class="headerlink" href="#eclipse-download" title="Permalink to this headline">¶</a></h2>
+<p>In our case, we use Eclipse Oxygen which can be download from here: <a class="reference external" href="http://www.eclipse.org/downloads/packages/release/oxygen/3a/">Eclipse Oxygen 3a Packages</a>. The <a class="reference external" href="http://www.eclipse.org/downloads/packages/release/oxygen/3a/eclipse-ide-java-developers">Eclipse IDE for Java Developers</a> edition is usually the best option.</p>
+<p>Most likely, you will want to start with a new workspace for EniWARE Network development. When you launch Eclipse it might ask you for a workspace location, at which time you can point it at a new directory, or once Eclipse is running, you can choose <strong>File &gt; Switch Workspace &gt; Other…</strong> to create a new one.</p>
 </div>
 <div class="section" id="eclipse-git-support-older-versions-of-eclipse-only">
-<span id="eclipse-git"></span><h2>Eclipse Git support (older versions of Eclipse only)<a class="headerlink" href="#eclipse-git-support-older-versions-of-eclipse-only" title="Permalink to this headline">¶</a></h2>
-<p>Older versions of Eclipse (before Eclipse Mars) did not come with Git support by default. If you are using an older version, once you have Eclipse installed and running you’ll need to install support for Git, via the <strong>EGit</strong> plug-in. Navigate to <strong>Help &gt; Eclipse Marketplace</strong> and search for <em>egit</em>. Install the <strong>EGit - Git Team Provider</strong> plug-in.</p>
+<span id="eclipse-git"></span><h2>2. Eclipse Git support (older versions of Eclipse only)<a class="headerlink" href="#eclipse-git-support-older-versions-of-eclipse-only" title="Permalink to this headline">¶</a></h2>
+<p>Older versions of Eclipse (before Eclipse Mars) did not come with Git support by default. If you are using an older version, once you have Eclipse installed and running you will need to install support for Git, via the <strong>EGit</strong> plug-in. Navigate to <strong>Help &gt; Eclipse Marketplace</strong> and search for <em>egit</em>. Install the <strong>EGit - Git Team Provider</strong> plug-in.</p>
 <div class="figure" id="eclipse-egit">
 <img alt="EGit - Git Team Provider" src="_images/0-eclipse-egit-install.png" />
 </div>
 </div>
 <div class="section" id="eclipse-osgi-enterprise-support-optional">
-<span id="eclipse-osgi"></span><h2>Eclipse OSGi enterprise support (optional)<a class="headerlink" href="#eclipse-osgi-enterprise-support-optional" title="Permalink to this headline">¶</a></h2>
+<span id="eclipse-osgi"></span><h2>3. Eclipse OSGi enterprise support (optional)<a class="headerlink" href="#eclipse-osgi-enterprise-support-optional" title="Permalink to this headline">¶</a></h2>
 <p>Another optional, but useful set of plug-ins for EniwareNetwork development in Eclipse are from <a class="reference external" href="https://www.eclipse.org/libra/">Project Libra</a>. Navigate to <strong>Help &gt; Install New Software…</strong>, select the project release update site URL in the <strong>Work with</strong> menu (for example <code class="docutils literal notranslate"><span class="pre">http://download.eclipse.org/releases/oxygen</span></code> if you’re using Eclipse Oxygen) and look under <strong>Web, XML, Java EE and OSGi Enterprise Development</strong> for these plug-ins:</p>
 <ul class="simple">
 <li>OSGi Bundle Facet</li>
-<li>OSGi Frarmework Editor</li>
+<li>OSGi Framework  Editor</li>
 <li>OSGi Framework Launchers</li>
 </ul>
 <div class="figure" id="eclipse-osgi-install">
@@ -194,10 +194,10 @@
 </div>
 </div>
 <div class="section" id="clone-eniwarenetwork-git-repositories">
-<span id="eclipse-eniware-repo"></span><h2>Clone EniwareNetwork Git Repositories<a class="headerlink" href="#clone-eniwarenetwork-git-repositories" title="Permalink to this headline">¶</a></h2>
+<span id="eclipse-eniware-repo"></span><h2>4. Clone EniwareNetwork Git Repositories<a class="headerlink" href="#clone-eniwarenetwork-git-repositories" title="Permalink to this headline">¶</a></h2>
 <p>The EniwareNetwork platform is broken up into multiple Git repositories. You will need to clone a few of them to work on any EniwareNetwork application. You can clone a Git repository by going to open a GIT Perspective: <strong>Window &gt; Perspective &gt; Open Perspective &gt; Other &gt; Git</strong>.
 In the top right corner of Eclipse window you will see the icon of <em>GIT Perspective</em>.</p>
-<p>After you open the <em>GIT Perspective</em> you need to clone the following <a class="reference external" href="https://github.com/eniware-org">EniwareNetwork</a> repositories from Github:</p>
+<p>After you open the <em>GIT Perspective</em> you need to clone the following <a class="reference external" href="https://github.com/eniware-org">EniwareNetwork</a> repositories from GitHub:</p>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/eniware-org/org.eniware.build">org.eniware.build</a>;</li>
 <li><a class="reference external" href="https://github.com/eniware-org/org.eniware.common">org.eniware.common</a>;</li>
@@ -208,7 +208,7 @@ In the top right corner of Eclipse window you will see the icon of <em>GIT Persp
 <div class="figure" id="eniware-repo-install">
 <img alt="EniwareNetwork repository" src="_images/2-org-eniawre-build.png" />
 </div>
-<p>To clone the repository switch to GIT Perspective and click on <strong>Clone a Git Repository and add the clone to thiw view</strong> button:</p>
+<p>To clone the repository switch to GIT Perspective and click on <strong>Clone a Git Repository and add the clone to this view</strong> button:</p>
 <div class="figure" id="eniware-repo-clone">
 <img alt="Clone repository" src="_images/3-new-eclipse.png" />
 </div>
@@ -216,13 +216,13 @@ In the top right corner of Eclipse window you will see the icon of <em>GIT Persp
 <div class="figure" id="eniware-repo-uri">
 <img alt="Repository URI" src="_images/4-clone-git-repository.png" />
 </div>
-<p>Then click <strong>Next</strong> button to select the branch in <strong>Branch Selection</strong> screen. The master branch should already be selected for you.</p>
+<p>Then click <strong>Next</strong> button to select the branch in <strong>Branch Selection</strong> screen. The master branch should be selected for you.</p>
 <div class="figure" id="eniware-repo-branch">
 <img alt="Branch selection" src="_images/5-branch-selection.png" />
 </div>
-<p>Click the <strong>Next</strong> button. In the next window you have to choose the <strong>Local Destination</strong> (a directory to clone the repository into), and mark the <strong>Import all existing Eclipse project after clone finishes</strong> checkbox:</p>
+<p>Click the <strong>Next</strong> button. In the next window, you have to choose the <strong>Local Destination</strong> (a directory to clone the repository into), and mark the <strong>Import all existing Eclipse project after clone finishes</strong> checkbox:</p>
 <div class="figure" id="eniware-local-destination">
-<img alt="Local Destinationn" src="_images/6-local-destination.png" />
+<img alt="Local Destination" src="_images/6-local-destination.png" />
 </div>
 <p>Click the <strong>Finish</strong> button to check out the projects.</p>
 <p>Once the clone of repositories to your Eclipse is complete, you can switch to the Java Perspective and you will see the bundle projects. It should look similar to the following:</p>
@@ -231,8 +231,8 @@ In the top right corner of Eclipse window you will see the icon of <em>GIT Persp
 </div>
 </div>
 <div class="section" id="set-up-eclipse-target-platform">
-<span id="eclipse-target"></span><h2>Set up Eclipse Target Platform<a class="headerlink" href="#set-up-eclipse-target-platform" title="Permalink to this headline">¶</a></h2>
-<p>Next we have to configure the Eclipse. This will happened in few steps:</p>
+<span id="eclipse-target"></span><h2>5. Set up Eclipse Target Platform<a class="headerlink" href="#set-up-eclipse-target-platform" title="Permalink to this headline">¶</a></h2>
+<p>Next, we have to configure the Eclipse. This will happened in few steps:</p>
 <ol class="arabic">
 <li><p class="first">In Eclipse open the <strong>eniware-osgi-target</strong> project and then the <code class="docutils literal notranslate"><span class="pre">defs/org.eniware-gemini.target</span></code> file.</p>
 </li>
@@ -245,11 +245,11 @@ In the top right corner of Eclipse window you will see the icon of <em>GIT Persp
 <p>This will create and activate the Eclipse target platform, and all Eclipse errors for all projects should go away. If any errors remain, select those projects and choose <strong>Project &gt; Clean…</strong> to have Eclipse re-compile those projects again. Sometimes Eclipse incorrectly reports problems, and cleaning those projects will resolve the errors. You will find references to this situation on the web called <em>the Eclipse dance</em>.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Click on the <strong>Environment</strong> tab at the bottom, then under the <strong>Arguments</strong> section select <strong>VM</strong>. Select this entire block of text and copy it, as you’ll need to paste this into the runtime configuration, discussed in the next section.</p>
+<p class="last">Click on the <strong>Environment</strong> tab at the bottom, then under the <strong>Arguments</strong> section select <strong>VM</strong>. Select this entire block of text and copy it, as you will need to paste this into the runtime configuration, discussed in the next section.</p>
 </div>
 </div>
 <div class="section" id="configure-osgi-runtime">
-<span id="eclipse-osgi-runtime"></span><h2>Configure OSGi Runtime<a class="headerlink" href="#configure-osgi-runtime" title="Permalink to this headline">¶</a></h2>
+<span id="eclipse-osgi-runtime"></span><h2>6. Configure OSGi Runtime<a class="headerlink" href="#configure-osgi-runtime" title="Permalink to this headline">¶</a></h2>
 <p>In order to run the EniwareNetwork platform within Eclipse, you must configure the OSGi runtime environment:</p>
 <ol class="arabic">
 <li><p class="first">First, create the directory <code class="docutils literal notranslate"><span class="pre">/eniware-osgi-target/config</span></code>. Then copy all the files from <code class="docutils literal notranslate"><span class="pre">/eniware-osgi-target/example/config</span></code> into that directory.</p>
@@ -314,9 +314,10 @@ In the top right corner of Eclipse window you will see the icon of <em>GIT Persp
 </pre></div>
 </div>
 <ol class="arabic simple" start="5">
-<li>Next, click on the <strong>Settings</strong> tag and change the JRE to use the <strong>Execution environment</strong> value of <strong>JavaSE-1.6</strong>.</li>
+<li>Next, click on the <strong>Settings</strong> tab and change the JRE to use the <strong>Execution environment</strong> value of <strong>JavaSE-1.6</strong>.</li>
 </ol>
-<p>You can now click the <strong>Close</strong> button to dismiss the runtime configuration dialog.</p>
+<p>You should click <strong>Apply</strong> and then the <strong>Close</strong> button to dismiss the runtime configuration dialog.</p>
+<p>With this final step, the Eclipse is ready to be used as a development environment for EniwareNetwork platform.</p>
 </div>
 </div>
 
