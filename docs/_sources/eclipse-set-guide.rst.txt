@@ -156,7 +156,7 @@ This will create and activate the Eclipse target platform, and all Eclipse error
 
 .. important:: You may need to install **Eclipse Plug-in Development Environment** (Eclipse PDE). Otherwise the **Set as Active Target Platform** is  not available.
 
-  To obtain PDE, select **Help" > **Install New Software**.
+  To obtain PDE, select **Help** > **Install New Software**.
 
    .. figure:: /images/8.1-org.eniware-PDEins.png
       :alt: Obtain PDE
