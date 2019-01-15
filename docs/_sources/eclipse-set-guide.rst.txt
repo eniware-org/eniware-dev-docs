@@ -150,9 +150,15 @@ Next, we have to configure the Eclipse. This will happened in few steps:
    .. figure:: /images/8-org.eniware-gemini.png
       :alt: Target Definition
 
-This will create and activate the Eclipse target platform, and all Eclipse errors for all projects should go away. If any errors remain, select those projects and choose **Project > Clean...** to have Eclipse re-compile those projects again. Sometimes Eclipse incorrectly reports problems, and cleaning those projects will resolve the errors. You will find references to this situation on the web called *the Eclipse dance*.
+ This will create and activate the Eclipse target platform, and all Eclipse errors for all projects should go away. If any errors remain, select those projects and choose **Project > Clean...** to have Eclipse re-compile those projects again. Sometimes Eclipse incorrectly reports problems, and cleaning those projects will resolve the errors. You will find references to this situation on the web called *the Eclipse dance*.
 
-.. note:: Click on the **Environment** tab at the bottom, then under the **Arguments** section select **VM**. Select this entire block of text and copy it, as you will need to paste this into the runtime configuration, discussed in the next section.
+3) Click on the **Environment** tab at the bottom, then under the **Arguments** section select **VM**. Select this entire block of text and copy it, as you will need to paste this into the runtime configuration, discussed in the :ref:`next section<eclipse-osgi-runtime-copy>`.
+
+   .. _eniware-VM-arguments:
+   
+   .. figure:: /images/8.0-org.eniware-VMarg.png
+      :alt: VM arguments
+
 
 .. important:: You may need to install **Eclipse Plug-in Development Environment** (Eclipse PDE). Otherwise the **Set as Active Target Platform** is  not available.
 
@@ -208,24 +214,26 @@ In order to run the EniwareNetwork platform within Eclipse, you must configure t
    .. figure:: /images/10-bundles.png
       :alt: Bundles
 
-4) Next, click on the **Arguments** tab and change the **Working directory** to **Other** and specify ``${workspace_loc:eniware-osgi-target}`` as the path. In the **VM arguments** section, paste in the arguments you copied from the target platform configuration in the previous section, which should look something like:
+.. _eclipse-osgi-runtime-copy:
 
-.. code::
-   
-   -Dsn.home=${workspace_loc:eniware-osgi-target}
-   -Dderby.system.home=${workspace_loc:eniware-osgi-target}/var/db
-   -Djava.util.logging.config.file=config/jre-logging.properties
-   -Dosgi.java.profile=file:config/java6-server.profile
-   -Dorg.apache.felix.eventadmin.Timeout=120000
-   -Dfelix.fileinstall.dir=configurations/services
-   -Dfelix.fileinstall.filter=.*\.cfg
-   -Dfelix.fileinstall.noInitialDelay=true
-   -Declipse.ignoreApp=true
-   -Dosgi.noShutdown=true
-   -Dxml.catalog.files=${workspace_loc:eniware-osgi-lib}/xml-catalog/catalog.xml
+4) Next, click on the **Arguments** tab and change the **Working directory** to **Other** and specify ``${workspace_loc:eniware-osgi-target}`` as the path. In the **VM arguments** section, paste the :ref:`arguments<eniware-VM-arguments>` you copied from the target platform configuration in the :ref:`previous section<eclipse-target>`, which should look something like:
+
+ .. code::
+    
+    -Declipse.ignoreApp=true 
+    -Dosgi.noShutdown=true 
+    -Dsn.home=${workspace_loc:eniware-osgi-target} 
+    -Dxml.catalog.files=${workspace_loc:eniware-osgi-lib}/xml-catalog/catalog.xml
+    -Dderby.system.home=${workspace_loc:eniware-osgi-target}/var/db 
+    -Djava.util.logging.config.file=config/jre-logging.properties 
+    -Dosgi.java.profile=file:config/java8-server.profile -Dorg.apache.felix.eventadmin.ThreadPoolSize=4
+    -Dorg.apache.felix.eventadmin.Timeout=120000 
+    -Dfelix.fileinstall.dir=configurations/services 
+    -Dfelix.fileinstall.filter=.*\.cfg 
+    -Dfelix.fileinstall.noInitialDelay=true
 
 5) Next, click on the **Settings** tab and change the JRE to use the **Execution environment** value of **JavaSE-1.6**.
 
-You should click **Apply** and then the **Close** button to dismiss the runtime configuration dialog.
+You should click **Apply** and then the **Close** button to dismiss the *Runtime configuration* dialog.
 
 With this final step, the Eclipse is ready to be used as a development environment for EniwareNetwork platform.

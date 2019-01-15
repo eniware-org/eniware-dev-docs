@@ -242,11 +242,15 @@ In the top right corner of Eclipse window you will see the icon of <em>GIT Persp
 </div>
 </li>
 </ol>
-<p>This will create and activate the Eclipse target platform, and all Eclipse errors for all projects should go away. If any errors remain, select those projects and choose <strong>Project &gt; Clean…</strong> to have Eclipse re-compile those projects again. Sometimes Eclipse incorrectly reports problems, and cleaning those projects will resolve the errors. You will find references to this situation on the web called <em>the Eclipse dance</em>.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Click on the <strong>Environment</strong> tab at the bottom, then under the <strong>Arguments</strong> section select <strong>VM</strong>. Select this entire block of text and copy it, as you will need to paste this into the runtime configuration, discussed in the next section.</p>
+<blockquote>
+<div>This will create and activate the Eclipse target platform, and all Eclipse errors for all projects should go away. If any errors remain, select those projects and choose <strong>Project &gt; Clean…</strong> to have Eclipse re-compile those projects again. Sometimes Eclipse incorrectly reports problems, and cleaning those projects will resolve the errors. You will find references to this situation on the web called <em>the Eclipse dance</em>.</div></blockquote>
+<ol class="arabic" start="3">
+<li><p class="first">Click on the <strong>Environment</strong> tab at the bottom, then under the <strong>Arguments</strong> section select <strong>VM</strong>. Select this entire block of text and copy it, as you will need to paste this into the runtime configuration, discussed in the <a class="reference internal" href="#eclipse-osgi-runtime-copy"><span class="std std-ref">next section</span></a>.</p>
+<div class="figure" id="eniware-vm-arguments">
+<img alt="VM arguments" src="_images/8.0-org.eniware-VMarg.png" />
 </div>
+</li>
+</ol>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
 <p>You may need to install <strong>Eclipse Plug-in Development Environment</strong> (Eclipse PDE). Otherwise the <strong>Set as Active Target Platform</strong> is  not available.</p>
@@ -314,26 +318,28 @@ In the top right corner of Eclipse window you will see the icon of <em>GIT Persp
 </div>
 </div></blockquote>
 </div></blockquote>
-<ol class="arabic simple" start="4">
-<li>Next, click on the <strong>Arguments</strong> tab and change the <strong>Working directory</strong> to <strong>Other</strong> and specify <code class="docutils literal notranslate"><span class="pre">${workspace_loc:eniware-osgi-target}</span></code> as the path. In the <strong>VM arguments</strong> section, paste in the arguments you copied from the target platform configuration in the previous section, which should look something like:</li>
+<ol class="arabic simple" id="eclipse-osgi-runtime-copy" start="4">
+<li>Next, click on the <strong>Arguments</strong> tab and change the <strong>Working directory</strong> to <strong>Other</strong> and specify <code class="docutils literal notranslate"><span class="pre">${workspace_loc:eniware-osgi-target}</span></code> as the path. In the <strong>VM arguments</strong> section, paste the <a class="reference internal" href="#eniware-vm-arguments"><span class="std std-ref">arguments</span></a> you copied from the target platform configuration in the <a class="reference internal" href="#eclipse-target"><span class="std std-ref">previous section</span></a>, which should look something like:</li>
 </ol>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span>-Dsn.home=${workspace_loc:eniware-osgi-target}
+<blockquote>
+<div><div class="code highlight-default notranslate"><div class="highlight"><pre><span></span>-Declipse.ignoreApp=true
+-Dosgi.noShutdown=true
+-Dsn.home=${workspace_loc:eniware-osgi-target}
+-Dxml.catalog.files=${workspace_loc:eniware-osgi-lib}/xml-catalog/catalog.xml
 -Dderby.system.home=${workspace_loc:eniware-osgi-target}/var/db
 -Djava.util.logging.config.file=config/jre-logging.properties
--Dosgi.java.profile=file:config/java6-server.profile
+-Dosgi.java.profile=file:config/java8-server.profile -Dorg.apache.felix.eventadmin.ThreadPoolSize=4
 -Dorg.apache.felix.eventadmin.Timeout=120000
 -Dfelix.fileinstall.dir=configurations/services
 -Dfelix.fileinstall.filter=.*\.cfg
 -Dfelix.fileinstall.noInitialDelay=true
--Declipse.ignoreApp=true
--Dosgi.noShutdown=true
--Dxml.catalog.files=${workspace_loc:eniware-osgi-lib}/xml-catalog/catalog.xml
 </pre></div>
 </div>
+</div></blockquote>
 <ol class="arabic simple" start="5">
 <li>Next, click on the <strong>Settings</strong> tab and change the JRE to use the <strong>Execution environment</strong> value of <strong>JavaSE-1.6</strong>.</li>
 </ol>
-<p>You should click <strong>Apply</strong> and then the <strong>Close</strong> button to dismiss the runtime configuration dialog.</p>
+<p>You should click <strong>Apply</strong> and then the <strong>Close</strong> button to dismiss the <em>Runtime configuration</em> dialog.</p>
 <p>With this final step, the Eclipse is ready to be used as a development environment for EniwareNetwork platform.</p>
 </div>
 </div>
