@@ -237,3 +237,42 @@ In order to run the EniwareNetwork platform within Eclipse, you must configure t
 You should click **Apply** and then the **Close** button to dismiss the *Runtime configuration* dialog.
 
 With this final step, the Eclipse is ready to be used as a development environment for EniwareNetwork platform.
+
+
+
+7. Add IvyDE plugin to Eclipse
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Most Eclips distributions include a plugin to launch Apache Ant build files. The provided Apache Ant distribution is a standard distribution of Ant that doesn't include Apache Ivy.
+
+`Apache IvyDE <https://ant.apache.org/ivy/ivyde/>`_ is the Eclipse plugin which integrates Apache Ivy's dependency management into Eclipse. It lets you manage your dependencies declared in an ``ivy.xml`` in your Java Eclipse projects, or any other kind of project which needs dependency management.
+
+1) Install the IveIDE plugin
+ 
+ To install the IveIDE in Eclipse go to **Help > Install New Software** and add this link into **Worth with** fild:
+ 
+ .. code::
+  
+  IvyDE - https://builds.apache.org/job/IvyDE-updatesite/lastSuccessfulBuild/artifact/trunk/build/
+ 
+ To download the Apache Ivy library select the **Apache Ivy Ant Task** and install it:
+ 
+ .. _eniware-apache-ivy:
+   
+ .. figure:: /images/11-apache-ant.png
+    :alt: Apache Ivy Ant Task
+ 
+ .. warning:: You need to restart Eclipse after installing the plugin.
+
+
+2) Manual configuration 
+
+ After installing the IveIDE plugin go to **Windows > Preferences > Ant > Runtime**, click on **Global Entries** and press the **Add External Jars** button. Navifate to the ``plugins`` directory of your Eclipse installation and select the Ivy jar-file named ``org.apache.ivy_2.X.X.XXXXXXXXX.jar``.
+
+ .. _eniware-ivy-jar:
+   
+ .. figure:: /images/12-ivy-jar.png
+    :alt: Add Apache Ivy Jar
+
+ This will add Ivy to the classpath of the Ant distribution embedded in Eclipse.
+
