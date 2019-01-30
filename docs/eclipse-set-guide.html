@@ -27,6 +27,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="Welcome to Eclipse Setup Guide for EniwareNetwork’s documentation!" href="index.html" /> 
@@ -349,10 +350,10 @@ In the top right corner of Eclipse window you will see the icon of <em>GIT Persp
 <p>Most Eclips distributions include a plugin to launch Apache Ant build files. The provided Apache Ant distribution is a standard distribution of Ant that doesn’t include Apache Ivy.</p>
 <p><a class="reference external" href="https://ant.apache.org/ivy/ivyde/">Apache IvyDE</a> is the Eclipse plugin which integrates Apache Ivy’s dependency management into Eclipse. It lets you manage your dependencies declared in an <code class="docutils literal notranslate"><span class="pre">ivy.xml</span></code> in your Java Eclipse projects, or any other kind of project which needs dependency management.</p>
 <ol class="arabic simple">
-<li>Install the IveIDE plugin</li>
+<li>Install the IveDE plugin</li>
 </ol>
 <blockquote>
-<div><p>To install the IveIDE in Eclipse go to <strong>Help &gt; Install New Software</strong> and add this link into <strong>Worth with</strong> fild:</p>
+<div><p>To install the IveDE in Eclipse go to <strong>Help &gt; Install New Software</strong> and add this link into <strong>Worth with</strong> fild:</p>
 <div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">IvyDE</span> <span class="o">-</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">builds</span><span class="o">.</span><span class="n">apache</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">job</span><span class="o">/</span><span class="n">IvyDE</span><span class="o">-</span><span class="n">updatesite</span><span class="o">/</span><span class="n">lastSuccessfulBuild</span><span class="o">/</span><span class="n">artifact</span><span class="o">/</span><span class="n">trunk</span><span class="o">/</span><span class="n">build</span><span class="o">/</span>
 </pre></div>
 </div>
@@ -366,14 +367,43 @@ In the top right corner of Eclipse window you will see the icon of <em>GIT Persp
 </div>
 </div></blockquote>
 <ol class="arabic simple" start="2">
-<li>Manual configuration</li>
+<li>Manual configuration (optionally)</li>
 </ol>
 <blockquote>
-<div><p>After installing the IveIDE plugin go to <strong>Windows &gt; Preferences &gt; Ant &gt; Runtime</strong>, click on <strong>Global Entries</strong> and press the <strong>Add External Jars</strong> button. Navifate to the <code class="docutils literal notranslate"><span class="pre">plugins</span></code> directory of your Eclipse installation and select the Ivy jar-file named <code class="docutils literal notranslate"><span class="pre">org.apache.ivy_2.X.X.XXXXXXXXX.jar</span></code>.</p>
+<div><p>You can manually install your custom version of Ivy: go to <strong>Windows &gt; Preferences &gt; Ant &gt; Runtime</strong>, click on <strong>Global Entries</strong> and press the <strong>Add External Jars</strong> button. Then navifate to the the directory where is you custom Ivy jar-file <code class="docutils literal notranslate"><span class="pre">org.apache.ivy_2.X.X.XXXXXXXXX.jar</span></code> and apply it:</p>
 <div class="figure" id="eniware-ivy-jar">
 <img alt="Add Apache Ivy Jar" src="_images/12-ivy-jar.png" />
 </div>
 <p>This will add Ivy to the classpath of the Ant distribution embedded in Eclipse.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">You need to restart Eclipse after manually installing the plugin.</p>
+</div>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p>You can find <code class="docutils literal notranslate"><span class="pre">org.apache.ivy_2.X.X.XXXXXXXXX.jar</span></code> file in the following location:</p>
+<ul class="simple">
+<li>for Linux: <code class="docutils literal notranslate"><span class="pre">/home/&lt;your</span> <span class="pre">user</span> <span class="pre">name&gt;/.p2/pool/plugins</span></code></li>
+<li>for Windows: <code class="docutils literal notranslate"><span class="pre">\Users\&lt;your</span> <span class="pre">user</span> <span class="pre">name&gt;\.p2\pool\plugins</span></code></li>
+</ul>
+<p class="last"><a class="reference external" href="https://wiki.eclipse.org/Equinox/p2">p2</a> is a mechanism for managing your Eclipse install, searching for updates, and installing new functionality. <code class="docutils literal notranslate"><span class="pre">.p2</span></code> is a <strong>hiden folder</strong>. It is a shared installation folder that is referenced by all the Eclipse instances created by the installer.</p>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Check the version of IvyDE plugin</li>
+</ol>
+<blockquote>
+<div><p>After restarting, the IvyDE plugins should have started.
+To check the version go to <strong>Window &gt; Preferences</strong> and select <strong>Ant/Runtime/Types</strong>:</p>
+<div class="figure" id="eniware-ivy-check1">
+<img alt="Check the IvyDE version" src="_images/13-ivy-jar-check1.png" />
+</div>
+<p>Alternatively, in Eclipse’s list of plugins go to <strong>Help &gt; About Eclipse</strong>, click on <strong>Installation Details</strong> button and search in the <strong>Plug-ins</strong> tab:</p>
+<blockquote>
+<div></div></blockquote>
+<div class="figure" id="eniware-ivy-check2">
+<img alt="Check the IvyDE version" src="_images/14-ivy-jar-check2.png" />
+</div>
 </div></blockquote>
 </div>
 </div>

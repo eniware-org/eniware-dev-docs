@@ -247,9 +247,9 @@ Most Eclips distributions include a plugin to launch Apache Ant build files. The
 
 `Apache IvyDE <https://ant.apache.org/ivy/ivyde/>`_ is the Eclipse plugin which integrates Apache Ivy's dependency management into Eclipse. It lets you manage your dependencies declared in an ``ivy.xml`` in your Java Eclipse projects, or any other kind of project which needs dependency management.
 
-1) Install the IveIDE plugin
+1) Install the IveDE plugin
  
- To install the IveIDE in Eclipse go to **Help > Install New Software** and add this link into **Worth with** fild:
+ To install the IveDE in Eclipse go to **Help > Install New Software** and add this link into **Worth with** fild:
  
  .. code::
   
@@ -265,9 +265,9 @@ Most Eclips distributions include a plugin to launch Apache Ant build files. The
  .. warning:: You need to restart Eclipse after installing the plugin.
 
 
-2) Manual configuration 
+2) Manual configuration (optionally)
 
- After installing the IveIDE plugin go to **Windows > Preferences > Ant > Runtime**, click on **Global Entries** and press the **Add External Jars** button. Navifate to the ``plugins`` directory of your Eclipse installation and select the Ivy jar-file named ``org.apache.ivy_2.X.X.XXXXXXXXX.jar``.
+ You can manually install your custom version of Ivy: go to **Windows > Preferences > Ant > Runtime**, click on **Global Entries** and press the **Add External Jars** button. Then navifate to the the directory where is you custom Ivy jar-file ``org.apache.ivy_2.X.X.XXXXXXXXX.jar`` and apply it:
 
  .. _eniware-ivy-jar:
    
@@ -275,4 +275,33 @@ Most Eclips distributions include a plugin to launch Apache Ant build files. The
     :alt: Add Apache Ivy Jar
 
  This will add Ivy to the classpath of the Ant distribution embedded in Eclipse.
+ 
+ .. warning:: You need to restart Eclipse after manually installing the plugin.
+ 
+ .. hint:: You can find ``org.apache.ivy_2.X.X.XXXXXXXXX.jar`` file in the following location:
+ 
+  * for Linux: ``/home/<your user name>/.p2/pool/plugins``
+  * for Windows: ``\Users\<your user name>\.p2\pool\plugins``
+ 
+  `p2 <https://wiki.eclipse.org/Equinox/p2>`_ is a mechanism for managing your Eclipse install, searching for updates, and installing new functionality. ``.p2`` is a **hiden folder**. It is a shared installation folder that is referenced by all the Eclipse instances created by the installer.
+ 
+ 
+ 
+3) Check the version of IvyDE plugin
 
+ After restarting, the IvyDE plugins should have started. 
+ To check the version go to **Window > Preferences** and select **Ant/Runtime/Types**:
+
+ .. _eniware-ivy-check1:
+   
+ .. figure:: /images/13-ivy-jar-check1.png
+    :alt: Check the IvyDE version
+
+
+
+ Alternatively, in Eclipse's list of plugins go to **Help > About Eclipse**, click on **Installation Details** button and search in the **Plug-ins** tab:
+
+  .. _eniware-ivy-check2:
+   
+ .. figure:: /images/14-ivy-jar-check2.png
+    :alt: Check the IvyDE version
