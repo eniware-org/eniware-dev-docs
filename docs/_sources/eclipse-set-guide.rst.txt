@@ -140,15 +140,11 @@ Most Eclips distributions include a plugin to launch Apache Ant build files. The
     :alt: Check the IvyDE version
    
 
-4) How to run Apache Ivy targets
+4) How to run Apache Ivy targets:
 
  * Create an ``ivy.xml`` file (i.e. description of the dependencies of a module, its published artifacts and its configurations, etc.), for example:
  
-  .. _eniware-ivy-xml:
-    
-  .. figure:: /images/15-ivy-xml.png
-     :alt: ivy.xml
-  
+
   
   .. code:: 
   
@@ -159,7 +155,12 @@ Most Eclips distributions include a plugin to launch Apache Ant build files. The
                        "http://ant.apache.org/ivy/schemas/ivy.xsd">
           <info organisation="eniware" module="hello-ivy"/>
     </ivy-module>
- 
+  
+  .. _eniware-ivy-xml:
+    
+  .. figure:: /images/15-ivy-xml.png
+     :alt: ivy.xml
+  
     
 
  *  Create an Ant build file and declare the Ivy targets with:
@@ -170,7 +171,7 @@ Most Eclips distributions include a plugin to launch Apache Ant build files. The
  
   .. hint:: Don't forgot to declare the namespace ``xmlns:ivy="antlib:org.apache.ivy.ant"``.
   
-  For exmaple:
+  For exmaple (``build.xml`` file):
   
   .. code::
    
@@ -187,23 +188,16 @@ Most Eclips distributions include a plugin to launch Apache Ant build files. The
    </project>
   
   
-  * After the ``taskdefs`` have been added, you will have code completion on Ivy tasks:
+ * After the ``taskdefs`` have been added, you will have code completion on Ivy tasks. The build will now be successful:
  
-   .. _eniware-build-xml:
-     
-   .. figure:: /images/16-build-xml.png
-      :alt: build.xml
+  .. _eniware-build-xml:
+    
+  .. figure:: /images/16-build-console.png
+     :alt: build.xml
  
-   
-   
-   The build will now be successful:
   
-   .. _eniware-build-console:
-     
-   .. figure:: /images/17-build-console.png
-      :alt: Ant run
-    
-    
+  
+ 
 
    
 .. _eclipse-eniware-repo:   

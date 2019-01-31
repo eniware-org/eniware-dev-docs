@@ -257,17 +257,14 @@ To check the version go to <strong>Window &gt; Preferences</strong> and select <
 </div>
 </div></blockquote>
 <ol class="arabic simple" start="4">
-<li>How to run Apache Ivy targets</li>
+<li>How to run Apache Ivy targets:</li>
 </ol>
 <blockquote>
 <div><ul class="simple">
 <li>Create an <code class="docutils literal notranslate"><span class="pre">ivy.xml</span></code> file (i.e. description of the dependencies of a module, its published artifacts and its configurations, etc.), for example:</li>
 </ul>
 <blockquote>
-<div><div class="figure" id="eniware-ivy-xml">
-<img alt="ivy.xml" src="_images/15-ivy-xml.png" />
-</div>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+<div><div class="code highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;ivy-module version=&quot;2.0&quot;
             xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
            xsi:noNamespaceSchemaLocation=
@@ -275,6 +272,9 @@ To check the version go to <strong>Window &gt; Preferences</strong> and select <
       &lt;info organisation=&quot;eniware&quot; module=&quot;hello-ivy&quot;/&gt;
 &lt;/ivy-module&gt;
 </pre></div>
+</div>
+<div class="figure" id="eniware-ivy-xml">
+<img alt="ivy.xml" src="_images/15-ivy-xml.png" />
 </div>
 </div></blockquote>
 <ul class="simple">
@@ -288,7 +288,7 @@ To check the version go to <strong>Window &gt; Preferences</strong> and select <
 <p class="first admonition-title">Hint</p>
 <p class="last">Don’t forgot to declare the namespace <code class="docutils literal notranslate"><span class="pre">xmlns:ivy=&quot;antlib:org.apache.ivy.ant&quot;</span></code>.</p>
 </div>
-<p>For exmaple:</p>
+<p>For exmaple (<code class="docutils literal notranslate"><span class="pre">build.xml</span></code> file):</p>
 <div class="code highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;project name=&quot;eniware&quot; default=&quot;default&quot; xmlns:ivy=&quot;antlib:org.apache.ivy.ant&quot;&gt;
 
@@ -302,18 +302,14 @@ To check the version go to <strong>Window &gt; Preferences</strong> and select <
 &lt;/project&gt;
 </pre></div>
 </div>
+</div></blockquote>
 <ul class="simple">
-<li>After the <code class="docutils literal notranslate"><span class="pre">taskdefs</span></code> have been added, you will have code completion on Ivy tasks:</li>
+<li>After the <code class="docutils literal notranslate"><span class="pre">taskdefs</span></code> have been added, you will have code completion on Ivy tasks. The build will now be successful:</li>
 </ul>
 <blockquote>
 <div><div class="figure" id="eniware-build-xml">
-<img alt="build.xml" src="_images/16-build-xml.png" />
+<img alt="build.xml" src="_images/16-build-console.png" />
 </div>
-<p>The build will now be successful:</p>
-<div class="figure" id="eniware-build-console">
-<img alt="Ant run" src="_images/17-build-console.png" />
-</div>
-</div></blockquote>
 </div></blockquote>
 </div></blockquote>
 </div>
