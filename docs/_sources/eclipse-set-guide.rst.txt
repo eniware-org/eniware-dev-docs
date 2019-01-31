@@ -69,178 +69,11 @@ Another optional, but useful set of plug-ins for EniwareNetwork development in E
 .. figure:: /images/1-available-software.png
    :alt: OSGi enterprise support
 
-
-   
-.. _eclipse-eniware-repo:   
-
-4. Clone EniwareNetwork Git Repositories
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^   
-
-The EniwareNetwork platform is broken up into multiple Git repositories. You will need to clone a few of them to work on any EniwareNetwork application. You can clone a Git repository by going to open a GIT Perspective: **Window > Perspective > Open Perspective > Other > Git**. 
-In the top right corner of Eclipse window you will see the icon of *GIT Perspective*.
-
-After you open the *GIT Perspective* you need to clone the following `EniwareNetwork <https://github.com/eniware-org>`_ repositories from GitHub:
-
-* `org.eniware.build <https://github.com/eniware-org/org.eniware.build>`_;
-* `org.eniware.common <https://github.com/eniware-org/org.eniware.common>`_;
-* `org.eniware.edge <https://github.com/eniware-org/org.eniware.edge>`_;
-* `org.eniware.external <https://github.com/eniware-org/org.eniware.external>`_;
-* `org.eniware.central <https://github.com/eniware-org/org.eniware.central>`_
-
-.. _eniware-repo-install:
-
-.. figure:: /images/2-org-eniawre-build.png
-   :alt: EniwareNetwork repository
-
-To clone the repository switch to GIT Perspective and click on **Clone a Git Repository and add the clone to this view** button: 
-
-.. _eniware-repo-clone:
-
-.. figure:: /images/3-new-eclipse.png
-   :alt: Clone repository
- 
-Then fill in the desired repository URI:
-
-.. _eniware-repo-uri:
-
-.. figure:: /images/4-clone-git-repository.png
-   :alt: Repository URI
-
- 
-
-Then click **Next** button to select the branch in **Branch Selection** screen. The master branch should be selected for you.
- 
-
-.. _eniware-repo-branch:
-
-.. figure:: /images/5-branch-selection.png
-   :alt: Branch selection
    
 
-Click the **Next** button. In the next window, you have to choose the **Local Destination** (a directory to clone the repository into), and mark the **Import all existing Eclipse project after clone finishes** checkbox:
-
-.. _eniware-local-destination:
-
-.. figure:: /images/6-local-destination.png
-   :alt: Local Destination 
-
-Click the **Finish** button to check out the projects. 
-
-Once the clone of repositories to your Eclipse is complete, you can switch to the Java Perspective and you will see the bundle projects. It should look similar to the following:
- 
-.. _eniware-packet-explorer:
-
-.. figure:: /images/7-new-eclipse-projects.png
-   :alt: Package Explorer 
-
-
-
-.. _eclipse-target:   
+.. _eclipse-ivede:
    
-5. Set up Eclipse Target Platform
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Next, we have to configure the Eclipse. This will happened in few steps:
-
-1) In Eclipse open the **eniware-osgi-target** project and then the ``defs/org.eniware-gemini.target`` file.
-2) Set up the target platform by click on the **Set as Active Target Platform** button on the **Target Definition** screen.
-
-   .. _eniware-target-definition:
-   
-   .. figure:: /images/8-org.eniware-gemini.png
-      :alt: Target Definition
-
- This will create and activate the Eclipse target platform, and all Eclipse errors for all projects should go away. If any errors remain, select those projects and choose **Project > Clean...** to have Eclipse re-compile those projects again. Sometimes Eclipse incorrectly reports problems, and cleaning those projects will resolve the errors. You will find references to this situation on the web called *the Eclipse dance*.
-
-3) Click on the **Environment** tab at the bottom, then under the **Arguments** section select **VM**. Select this entire block of text and copy it, as you will need to paste this into the runtime configuration, discussed in the :ref:`next section<eclipse-osgi-runtime-copy>`.
-
-   .. _eniware-VM-arguments:
-   
-   .. figure:: /images/8.0-org.eniware-VMarg.png
-      :alt: VM arguments
-
-
-.. important:: You may need to install **Eclipse Plug-in Development Environment** (Eclipse PDE). Otherwise the **Set as Active Target Platform** is  not available.
-
-  To obtain PDE, select **Help** > **Install New Software**.
-
-   .. figure:: /images/8.1-org.eniware-PDEins.png
-      :alt: Obtain PDE
-
-
-  Select **Work with:** *--All Available Sites--*, in the search field enter **pde**, check **Eclipse Plugin Development Tools**.
-  
-   .. figure:: /images/8.2org.eniware-PDEadd.png
-      :alt: Select PDE Plug-in
-
-  Click **Next**. Accept the license agreement and select **Finish**. You will need to restart Eclipse.
-
-
-
-.. _eclipse-osgi-runtime:
-
-6. Configure OSGi Runtime
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-In order to run the EniwareNetwork platform within Eclipse, you must configure the OSGi runtime environment:
-
-1) First, create the directory ``/eniware-osgi-target/config``. Then copy all the files from ``/eniware-osgi-target/example/config`` into that directory.
-2) Go to **Run > Run** configuration. From Run configuration choose **OSGI Framework** and specify **EniwareNetwork** as the runtime name.
-
-   .. _eniware-target-platform:
-   
-   .. figure:: /images/9-eniware-network.png
-      :alt: Run configuration
-
-3) Next, you must change some of the start levels for a handful of bundles, to ensure the platform can start up correctly. Modify the start levels of the bundles to the following:
-
-  +-------------------------------------+-------------+
-  | Plugin                              | Start Level |
-  +=====================================+=============+
-  | org.apache.felix.eventadmin         | 1           |
-  +-------------------------------------+-------------+
-  | org.apache.felix.fileinstall        | 2           |
-  +-------------------------------------+-------------+
-  | org.apache.servicemix.bundles.derby | 1           |
-  +-------------------------------------+-------------+
-  | org.eclipse.equinox.cm              | 1           |
-  +-------------------------------------+-------------+
-  | org.eclipse.gemini.web.extender     | 5           |
-  +-------------------------------------+-------------+
-
-	   
-   .. _eniware-bundles:
-   
-   .. figure:: /images/10-bundles.png
-      :alt: Bundles
-
-.. _eclipse-osgi-runtime-copy:
-
-4) Next, click on the **Arguments** tab and change the **Working directory** to **Other** and specify ``${workspace_loc:eniware-osgi-target}`` as the path. In the **VM arguments** section, paste the :ref:`arguments<eniware-VM-arguments>` you copied from the target platform configuration in the :ref:`previous section<eclipse-target>`, which should look something like:
-
- .. code::
-    
-    -Declipse.ignoreApp=true 
-    -Dosgi.noShutdown=true 
-    -Dsn.home=${workspace_loc:eniware-osgi-target} 
-    -Dxml.catalog.files=${workspace_loc:eniware-osgi-lib}/xml-catalog/catalog.xml
-    -Dderby.system.home=${workspace_loc:eniware-osgi-target}/var/db 
-    -Djava.util.logging.config.file=config/jre-logging.properties 
-    -Dosgi.java.profile=file:config/java8-server.profile -Dorg.apache.felix.eventadmin.ThreadPoolSize=4
-    -Dorg.apache.felix.eventadmin.Timeout=120000 
-    -Dfelix.fileinstall.dir=configurations/services 
-    -Dfelix.fileinstall.filter=.*\.cfg 
-    -Dfelix.fileinstall.noInitialDelay=true
-
-5) Next, click on the **Settings** tab and change the JRE to use the **Execution environment** value of **JavaSE-1.6**.
-
-You should click **Apply** and then the **Close** button to dismiss the *Runtime configuration* dialog.
-
-With this final step, the Eclipse is ready to be used as a development environment for EniwareNetwork platform.
-
-
-
-7. Add IvyDE plugin to Eclipse
+4. Add IvyDE plugin to Eclipse
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Most Eclips distributions include a plugin to launch Apache Ant build files. The provided Apache Ant distribution is a standard distribution of Ant that doesn't include Apache Ivy.
@@ -305,3 +138,240 @@ Most Eclips distributions include a plugin to launch Apache Ant build files. The
    
  .. figure:: /images/14-ivy-jar-check2.png
     :alt: Check the IvyDE version
+   
+
+4) How to run Apache Ivy targets
+
+ * Create an ``ivy.xml`` file (i.e. description of the dependencies of a module, its published artifacts and its configurations, etc.), for example:
+ 
+  .. _eniware-ivy-xml:
+    
+  .. figure:: /images/15-ivy-xml.png
+     :alt: ivy.xml
+  
+  
+  .. code:: 
+  
+    <?xml version="1.0" encoding="UTF-8"?>
+    <ivy-module version="2.0"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:noNamespaceSchemaLocation=
+                       "http://ant.apache.org/ivy/schemas/ivy.xsd">
+          <info organisation="eniware" module="hello-ivy"/>
+    </ivy-module>
+ 
+    
+
+ *  Create an Ant build file and declare the Ivy targets with:
+ 
+  .. code::
+  
+     <taskdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant" />
+ 
+  .. hint:: Don't forgot to declare the namespace ``xmlns:ivy="antlib:org.apache.ivy.ant"``.
+  
+  For exmaple:
+  
+  .. code::
+   
+   <?xml version="1.0" encoding="UTF-8"?>
+   <project name="eniware" default="default" xmlns:ivy="antlib:org.apache.ivy.ant">
+       
+        <taskdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant" />
+      
+        <target name="default">
+            <ivy:info/>
+         
+       </target>
+ 
+   </project>
+  
+  
+  * After the ``taskdefs`` have been added, you will have code completion on Ivy tasks:
+ 
+   .. _eniware-build-xml:
+     
+   .. figure:: /images/16-build-xml.png
+      :alt: build.xml
+ 
+   
+   
+   The build will now be successful:
+  
+   .. _eniware-build-console:
+     
+   .. figure:: /images/17-build-console.png
+      :alt: Ant run
+    
+    
+
+   
+.. _eclipse-eniware-repo:   
+
+5. Clone EniwareNetwork Git Repositories
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^   
+
+The EniwareNetwork platform is broken up into multiple Git repositories. You will need to clone a few of them to work on any EniwareNetwork application. You can clone a Git repository by going to open a GIT Perspective: **Window > Perspective > Open Perspective > Other > Git**. 
+In the top right corner of Eclipse window you will see the icon of *GIT Perspective*.
+
+After you open the *GIT Perspective* you need to clone the following `EniwareNetwork <https://github.com/eniware-org>`_ repositories from GitHub:
+
+* `org.eniware.build <https://github.com/eniware-org/org.eniware.build>`_;
+* `org.eniware.common <https://github.com/eniware-org/org.eniware.common>`_;
+* `org.eniware.edge <https://github.com/eniware-org/org.eniware.edge>`_;
+* `org.eniware.external <https://github.com/eniware-org/org.eniware.external>`_;
+* `org.eniware.central <https://github.com/eniware-org/org.eniware.central>`_
+
+.. _eniware-repo-install:
+
+.. figure:: /images/2-org-eniawre-build.png
+   :alt: EniwareNetwork repository
+
+To clone the repository switch to GIT Perspective and click on **Clone a Git Repository and add the clone to this view** button: 
+
+.. _eniware-repo-clone:
+
+.. figure:: /images/3-new-eclipse.png
+   :alt: Clone repository
+ 
+Then fill in the desired repository URI:
+
+.. _eniware-repo-uri:
+
+.. figure:: /images/4-clone-git-repository.png
+   :alt: Repository URI
+
+ 
+
+Then click **Next** button to select the branch in **Branch Selection** screen. The master branch should be selected for you.
+ 
+
+.. _eniware-repo-branch:
+
+.. figure:: /images/5-branch-selection.png
+   :alt: Branch selection
+   
+
+Click the **Next** button. In the next window, you have to choose the **Local Destination** (a directory to clone the repository into), and mark the **Import all existing Eclipse project after clone finishes** checkbox:
+
+.. _eniware-local-destination:
+
+.. figure:: /images/6-local-destination.png
+   :alt: Local Destination 
+
+Click the **Finish** button to check out the projects. 
+
+Once the clone of repositories to your Eclipse is complete, you can switch to the Java Perspective and you will see the bundle projects. It should look similar to the following:
+ 
+.. _eniware-packet-explorer:
+
+.. figure:: /images/7-new-eclipse-projects.png
+   :alt: Package Explorer 
+
+
+
+.. _eclipse-target:   
+   
+6. Set up Eclipse Target Platform
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Next, we have to configure the Eclipse. This will happened in few steps:
+
+1) In Eclipse open the **eniware-osgi-target** project and then the ``defs/org.eniware-gemini.target`` file.
+2) Set up the target platform by click on the **Set as Active Target Platform** button on the **Target Definition** screen.
+
+   .. _eniware-target-definition:
+   
+   .. figure:: /images/8-org.eniware-gemini.png
+      :alt: Target Definition
+
+ This will create and activate the Eclipse target platform, and all Eclipse errors for all projects should go away. If any errors remain, select those projects and choose **Project > Clean...** to have Eclipse re-compile those projects again. Sometimes Eclipse incorrectly reports problems, and cleaning those projects will resolve the errors. You will find references to this situation on the web called *the Eclipse dance*.
+
+3) Click on the **Environment** tab at the bottom, then under the **Arguments** section select **VM**. Select this entire block of text and copy it, as you will need to paste this into the runtime configuration, discussed in the :ref:`next section<eclipse-osgi-runtime-copy>`.
+
+   .. _eniware-VM-arguments:
+   
+   .. figure:: /images/8.0-org.eniware-VMarg.png
+      :alt: VM arguments
+
+
+.. important:: You may need to install **Eclipse Plug-in Development Environment** (Eclipse PDE). Otherwise the **Set as Active Target Platform** is  not available.
+
+  To obtain PDE, select **Help** > **Install New Software**.
+
+   .. figure:: /images/8.1-org.eniware-PDEins.png
+      :alt: Obtain PDE
+
+
+  Select **Work with:** *--All Available Sites--*, in the search field enter **pde**, check **Eclipse Plugin Development Tools**.
+  
+   .. figure:: /images/8.2org.eniware-PDEadd.png
+      :alt: Select PDE Plug-in
+
+  Click **Next**. Accept the license agreement and select **Finish**. You will need to restart Eclipse.
+
+
+
+.. _eclipse-osgi-runtime:
+
+7. Configure OSGi Runtime
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In order to run the EniwareNetwork platform within Eclipse, you must configure the OSGi runtime environment:
+
+1) First, create the directory ``/eniware-osgi-target/config``. Then copy all the files from ``/eniware-osgi-target/example/config`` into that directory.
+2) Go to **Run > Run** configuration. From Run configuration choose **OSGI Framework** and specify **EniwareNetwork** as the runtime name.
+
+   .. _eniware-target-platform:
+   
+   .. figure:: /images/9-eniware-network.png
+      :alt: Run configuration
+
+3) Next, you must change some of the start levels for a handful of bundles, to ensure the platform can start up correctly. Modify the start levels of the bundles to the following:
+
+  +-------------------------------------+-------------+
+  | Plugin                              | Start Level |
+  +=====================================+=============+
+  | org.apache.felix.eventadmin         | 1           |
+  +-------------------------------------+-------------+
+  | org.apache.felix.fileinstall        | 2           |
+  +-------------------------------------+-------------+
+  | org.apache.servicemix.bundles.derby | 1           |
+  +-------------------------------------+-------------+
+  | org.eclipse.equinox.cm              | 1           |
+  +-------------------------------------+-------------+
+  | org.eclipse.gemini.web.extender     | 5           |
+  +-------------------------------------+-------------+
+
+	   
+   .. _eniware-bundles:
+   
+   .. figure:: /images/10-bundles.png
+      :alt: Bundles
+
+.. _eclipse-osgi-runtime-copy:
+
+4) Next, click on the **Arguments** tab and change the **Working directory** to **Other** and specify ``${workspace_loc:eniware-osgi-target}`` as the path. In the **VM arguments** section, paste the :ref:`arguments<eniware-VM-arguments>` you copied from the target platform configuration in the :ref:`previous section<eclipse-target>`, which should look something like:
+
+ .. code::
+    
+    -Declipse.ignoreApp=true 
+    -Dosgi.noShutdown=true 
+    -Dsn.home=${workspace_loc:eniware-osgi-target} 
+    -Dxml.catalog.files=${workspace_loc:eniware-osgi-lib}/xml-catalog/catalog.xml
+    -Dderby.system.home=${workspace_loc:eniware-osgi-target}/var/db 
+    -Djava.util.logging.config.file=config/jre-logging.properties 
+    -Dosgi.java.profile=file:config/java8-server.profile -Dorg.apache.felix.eventadmin.ThreadPoolSize=4
+    -Dorg.apache.felix.eventadmin.Timeout=120000 
+    -Dfelix.fileinstall.dir=configurations/services 
+    -Dfelix.fileinstall.filter=.*\.cfg 
+    -Dfelix.fileinstall.noInitialDelay=true
+
+5) Next, click on the **Settings** tab and change the JRE to use the **Execution environment** value of **JavaSE-1.6**.
+
+You should click **Apply** and then the **Close** button to dismiss the *Runtime configuration* dialog.
+
+With this final step, the Eclipse is ready to be used as a development environment for EniwareNetwork platform.
+
+
+
