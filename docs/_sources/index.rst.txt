@@ -20,8 +20,7 @@ Welcome to Eclipse Setup Guide for EniwareNetwork's documentation!
          en
 
 :Description:
-         EniWARE
-		 EniwareNetwork Documentation
+        Eclipse Setup Guide for EniwareNetwork
 
 :Author:
          EniWARE
